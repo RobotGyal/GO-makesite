@@ -1,12 +1,13 @@
 package main
 
-<<<<<<< HEAD
 import (
+	"html/template"
 	"io/ioutil"
+	"os"
 )
 
 func main() {
-
+	readFile()
 }
 
 func readFile() string {
@@ -14,15 +15,18 @@ func readFile() string {
 	if err != nil {
 		panic(err)
 	}
-
+	// fmt.Print(string(fileContents))
 	return string(fileContents)
 }
 
-func renderTemplate()
-=======
-import "fmt"
+func renderTemplate() {
+	paths := []string{
+		"template.tmpl",
+	}
 
-func main() {
-	fmt.Println("Hello, world!")
+	t := template.Must(template.New("html-tmpl").ParseFiles(paths...))
+	err = t.Execute(os.Stdout, makesite)
+	if err != nil {
+		panic(err)
+	}
 }
->>>>>>> 9514ac8a2c135a448a2b15a4b246dcd5d59ee7bf
