@@ -25,10 +25,10 @@ func readFile(file string) string {
 
 func renderTemplate(content string) string {
 	paths := []string{
-		"template.tmpl",
+		"template-bootstrap.tmpl",
 	}
 
-	t := template.Must(template.New("template.tmpl").ParseFiles(paths...))
+	t := template.Must(template.New("template-bootstrap.tmpl").ParseFiles(paths...))
 	buffer := new(bytes.Buffer)
 	err := t.Execute(buffer, post{Author: "Aleia", Content: "Random Content for latest post"})
 	if err != nil {
